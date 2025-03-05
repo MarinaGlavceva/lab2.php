@@ -37,21 +37,36 @@
 #### Код реализации:
 ```php
 <?php
+// Получаем текущий день недели (например, "Monday", "Tuesday" и т. д.)
 $dayOfWeek = date("l");
+
+// Определяем расписание для сотрудников
 $schedule = [
     "John Styles" => in_array($dayOfWeek, ["Monday", "Wednesday", "Friday"]) ? "8:00-12:00" : "Нерабочий день",
     "Jane Doe" => in_array($dayOfWeek, ["Tuesday", "Thursday", "Saturday"]) ? "12:00-16:00" : "Нерабочий день"
-];
+]; ?>
 
-echo "<table border='1' cellpadding='5' cellspacing='0'>";
-echo "<tr><th>№</th><th>Фамилия Имя</th><th>График работы</th></tr>";
-$index = 1;
-foreach ($schedule as $name => $workHours) {
-    echo "<tr><td>{$index}</td><td>{$name}</td><td>{$workHours}</td></tr>";
-    $index++;
-}
-echo "</table>";
-?>
+// Генерация HTML-таблицы с расписанием 
+<table border='1' cellpadding='5' cellspacing='0'>
+    <tr>
+        <th>№</th>
+        <th>Фамилия Имя</th>
+        <th>График работы</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><?php echo ("John Styles"); ?></td>
+        <td><?php echo ($schedule["John Styles"]); ?></td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td><?php echo ("Jane Doe"); ?></td>
+        <td><?php echo ($schedule["Jane Doe"]); ?></td>
+    </tr>
+
+</table><br>;
+<?php
 ```
 
 ---
